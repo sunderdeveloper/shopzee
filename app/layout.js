@@ -14,10 +14,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
-      className="h-full antialiased"
-    >
-      <body className={`${outfit.className} min-h-full flex flex-col`}>
+      lang="en">
+      <body className={`${outfit.className} min-h-full flex flex-col overflow-x-hidden`}>
         <NavBar/>
         {children}</body>
     </html>
