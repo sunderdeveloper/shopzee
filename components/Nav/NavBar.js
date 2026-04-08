@@ -10,11 +10,11 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="text-gray-500 cursor-pointer">
-              <Link href="/shop">Shop</Link>
+              <Link href="/products">Products</Link>
             </li>
-            <li className="text-gray-500 cursor-pointer">
+            {/* <li className="text-gray-500 cursor-pointer">
               <Link href="/categories">Categories</Link>
-            </li>
+            </li> */}
             <li className="text-gray-500 cursor-pointer">
               <Link href="/orders">Orders</Link>
             </li>
