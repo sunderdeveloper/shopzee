@@ -1,26 +1,37 @@
+"use client";
 import Image from "next/image";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoEyeOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
 const Card = ({ product }) => {
-  const router = useRouter()
+  const {addtocart} = useContext(CartContext);
+  const router = useRouter();
   return (
     <>
       <div className="bg-gray-100 rounded-xl p-4 text-center relative group overflow-hidden">
         <div className="absolute gap-2 p-2 right-5 top-5 translate-x-100 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition duration-400">
-         
-          <span onClick={() => router.push(`/products/${product.id}`)} 
-          className="bg-white/80 w-10 h-10 flex items-center justify-center text-lg cursor-pointer text-gray-600 mb-2">
+          <span
+            onClick={() => router.push(`/products/${product.id}`)}
+            className="bg-white/80 w-10 h-10 flex items-center justify-center text-lg cursor-pointer text-gray-600 mb-2"
+          >
             <IoEyeOutline />
-          </span> 
-         
+          </span>
+
           <span className="bg-white/80 w-10 h-10 flex items-center justify-center text-lg cursor-pointer text-gray-600">
             <FaRegHeart />
           </span>
         </div>
 
-        <Image className="" width={250} height={100} src={product.images[0]} alt="product image"/>
+        <Image
+          className=""
+          width={250}
+          height={100}
+          src={product.images[0]}
+          alt="product image"
+        />
         <h1>{product.title}</h1>
         <h3 className="flex items-end justify-center my-2 text-xl text-orange-500 font-semibold">
           <svg
@@ -61,7 +72,10 @@ const Card = ({ product }) => {
           <FaRegStar /> {product.rating}
         </p>
 
-        <button className="my-2 bg-black text-white py-1 px-3 rounded-md cursor-pointer uppercase text-[12px] font-semibold">
+        <button
+          className="my-2 bg-black text-white py-1 px-3 rounded-md cursor-pointer uppercase text-[12px] font-semibold"
+          onClick={() => addtocart(product)}
+        >
           Add to cart
         </button>
       </div>

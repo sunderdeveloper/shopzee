@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Nav/NavBar"
+import { CartProvider } from "@/components/context/CartContext";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -16,8 +17,11 @@ export default function RootLayout({ children }) {
     <html
       lang="en">
       <body className={`${outfit.className} min-h-full flex flex-col overflow-x-hidden`}>
-        <NavBar/>
-        {children}</body>
+        <CartProvider>
+          <NavBar/>
+        {children}
+        </CartProvider>
+        </body>
     </html>
   );
 }
